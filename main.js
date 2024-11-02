@@ -16,7 +16,7 @@ document.querySelector(".control-buttons span").onclick = function () {
     // Remove Splash Screen
     document.querySelector(".control-buttons").remove();
 }
-
+let count = 0;
 // Effect Duration
 let duration = 1000;
 
@@ -88,6 +88,10 @@ function checkMatchedBlocks(firstBlock, secondBlock) {
         secondBlock.classList.add('has-match');
 
         document.getElementById('success').play();
+        if (count == 9) {
+            document.getElementById("winnig").style.visibility = "visible";
+        } else { count = count + 1; }
+        console.log(count);
     } else {
         triesElement.innerHTML = parseInt(triesElement.innerHTML) + 1;
         setTimeout(() => {
